@@ -32,15 +32,18 @@ public class StreamImpl implements Stream{
 	
 	public static char fistChar(Stream input){
 		List<Character> resultado = new ArrayList<Character>();
+		List<Character> excluidos = new ArrayList<Character>();
 		while(input.hasNext()){
 			Character letra = input.getNext();
 			if(resultado.contains(letra)){
 				resultado.remove(letra);
+				excluidos.add(letra);
 			}else{
-				resultado.add(letra);
+				if(!excluidos.contains(letra));
+			 	resultado.add(letra);
 			}
 		}
-		if(resultado.get(0)!=null){
+		if(resultado.size()>0){
 			return resultado.get(0);
 		}
 		return 0;	
