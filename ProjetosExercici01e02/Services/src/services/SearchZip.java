@@ -6,7 +6,6 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -19,13 +18,11 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-import br.com.ex01.EntitiesVO.AuthUser;
-import br.com.ex01.EntitiesVO.RequestFindZipCode;
 import br.com.ex01.EntitiesVO.AdressVO;
+import br.com.ex01.EntitiesVO.RequestFindZipCode;
 import br.com.ex01.EntitiesVO.RespostaWebService;
 import exception.ServicesException;
 import main.java.cdi.SearchZipBusiness;
-import main.java.cdi.Test;
 import main.java.exception.BusinessException;
 import util.ExceptionMapperImpl;
 
@@ -37,7 +34,7 @@ public class SearchZip {
     
 
     /**
-     * Método web para calculo da rota
+     * Metodo web para calculo da rota
      * @param json
      * @return json
      * @throws JSONException 
@@ -71,7 +68,7 @@ public class SearchZip {
     }
     
     /**
-     * Método web para calculo da rota
+     * Metodo web para calculo da rota
      * @param json
      * @return json
      * @throws JSONException 
