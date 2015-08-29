@@ -13,6 +13,8 @@ import main.java.entitie.User;
 
 public class GerarLogins {
 	
+	
+	
 	@Test
 	public void gerarLogins() {
 		EntityManager manager = new JPAUtil().getEntityManager();
