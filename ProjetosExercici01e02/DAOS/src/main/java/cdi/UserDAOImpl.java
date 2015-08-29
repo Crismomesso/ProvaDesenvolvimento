@@ -28,5 +28,19 @@ public class UserDAOImpl implements UserDAO{
 		manager.close();
 		return login.getId();
 	}
+	
+	@Override
+	public Integer addUser(User user) {
+		EntityManager manager = new JPAUtil().getEntityManager();
+
+		manager.getTransaction().begin();
+		
+        manager.persist(user);
+
+		manager.getTransaction().commit();
+
+		manager.close();
+		return user.getId();
+	}
 
 }

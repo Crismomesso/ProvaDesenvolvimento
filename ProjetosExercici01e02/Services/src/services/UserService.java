@@ -43,4 +43,23 @@ public class UserService {
 		}
 	}
 	
+	
+	@POST
+	@Path("/saveUser")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response newUser(String json) {
+		JSONObject jsonObj;
+		try {
+			jsonObj = new JSONObject(json);
+			final ObjectMapper objectMapper = new ObjectMapper();
+			final AuthUser request = objectMapper.readValue(jsonObj.toString(), AuthUser.class);
+			Integer findUserId = userBusiness.saveUser(request);
+	        return Response.status(Response.Status.OK).entity(findUserId).build();
+
+		} catch (Exception e) {
+			return  new ExceptionMapperImpl().toResponse(e);
+		}
+	}
+	
 }
