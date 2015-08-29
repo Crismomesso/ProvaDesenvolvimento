@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy"
+	content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	
+<link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+<link rel="stylesheet" href="css/style.css">	
+<link rel="stylesheet" href="css/ui-grid-stable.css">	
+	
+<script src="js/angular.js"></script>
+<script src="js/angular-cookies.js"></script>
+<script src="js/app.js"></script>
+
+<link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+<link rel="stylesheet" href="css/stylesDashboard.css">
+
+<script src="js/jquery.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-cookies.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/mask.js"></script>
+<script src="js/maskui.js"></script>
+<script src="js/ui-bootstrap-tpls-0.9.0.js"></script>
+<script src="js/csv.js"></script>
+<script src="js/pdfmake.js"></script>
+<script src="js/vfs_fonts.js"></script>
+<script src="js/ui-grid-stable.js"></script>
+
+<link rel="stylesheet" href="css/ui-grid.css" type="text/css">
+
+<script src="js/appAdressRegister.js"></script>
+
+</head>
+<body ng-controller="AdressController as ctrlAdress" ng-init="ctrlAdress.initController()">
+<div>
+
+</div>
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Dashboard</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html"><i
+							class="glyphicon glyphicon-lock"></i> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
+
+<form name="adressForm" class="form-horizontal" ng-submit="adressForm.$valid"
+			 role="form" novalidate>
+
+			<div class="container-fluid">
+			<div>
+				<div ng-show="!ctrlAdress.editMode">
+					<button type="button" class="btn btn-success pull-right"
+						ng-click="ctrlAdress.newItem()" type="submit">
+						<i class="fa fa-plus"></i> Novo Endereço
+					</button>					
+				</div>
+				<br /> <br />
+				<div
+					ng-show="!ctrlAdress.editMode && ctrlAdress.data.length > 0">
+					<div id="datagrid" ui-grid-selection
+						ui-grid="ctrlAdress.gridOptions"
+						external-scopes="ctrlAdress"></div>
+				</div>
+				<div
+					ng-show="!ctrlAdress.editMode && ctrlAdress.data.length == 0">
+					<div class="alert alert-info">Não há endereços cadastrados
+						no sistema.</div>
+				</div>
+			</div>
+
+			<div class="row-right"  ng-show="ctrlAdress.editMode">
+
+					<div class="col-sm-9">
+						<div class="row">
+
+							<div class="col-md-6">
+
+								<div class="panel panel-default ">
+									<div class="panel-heading">
+										<div class="panel-title">
+											<i class="glyphicon glyphicon-wrench pull-right"></i>
+											<h4>Cadastro de endereços</h4>
+										</div>
+									</div>
+									<div class="panel-body">
+									<form class="form form-vertical">
+					
+											<div class="control-group"
+												ng-class="{ 'has-error' : adressForm.zip.$invalid  && !adressForm.zip.$pristine}">
+												<label>CEP</label>
+												<div class="controls">
+													<input type="text" class="form-control" id="zip"
+														name="zip"
+														ng-model="ctrlAdress.entityToEdit.zip" ui-mask="99999-999"  ng-blur="ctrlAdress.findAdress(adressForm.zip)" required>
+													<span style="color: red"
+														ng-show="adressForm.zip.$invalid  && !adressForm.zip.$pristine"> <span
+														ng-show="adressForm.zip.$error.required  && !adressForm.zip.$pristine">CEP
+															é obrigatório.</span>
+													</span>
+												</div>
+											</div>
+											
+											<div class="control-group"
+												ng-class="{ 'has-error' : adressForm.logradouro.$invalid  && !adressForm.logradouro.$pristine}">
+												<label>Logradouro</label>
+												<div class="controls">
+													<input type="text" class="form-control" id="logradouro"
+														name="logradouro"
+														ng-model="ctrlAdress.entityToEdit.logradouro" required>
+													<span style="color: red"
+														ng-show="adressForm.logradouro.$invalid && !adressForm.logradouro.$pristine" > <span
+														ng-show="adressForm.logradouro.$error.required && !adressForm.logradouro.$pristine">Logradouro
+															é obrigatório.</span>
+													</span>
+												</div>
+											</div>
+											
+											<div class="control-group"
+												ng-class="{ 'has-error' : adressForm.numerStreet.$invalid && !adressForm.numerStreet.$pristine}">
+												<label>Número</label>
+												<div class="controls">
+													<input type="number" class="form-control" id="numerStreet"
+														name="numerStreet"
+														ng-model="ctrlAdress.entityToEdit.numerStreet" required>
+													<span style="color: red"
+														ng-show="adressForm.numerStreet.$invalid && !adressForm.numerStreet.$pristine"> <span
+														ng-show="adressForm.numerStreet.$error.required && !adressForm.numerStreet.$pristine">Número
+															é obrigatório.</span>
+													</span>
+												</div>
+											</div>
+											
+											<div class="control-group"
+												ng-class="{ 'has-error' : adressForm.city.$invalid && !adressForm.city.$pristine}">
+												<label>Cidade</label>
+												<div class="controls">
+													<input type="text" class="form-control" id="city"
+														name="city"
+														ng-model="ctrlAdress.entityToEdit.city" required>
+													<span style="color: red"
+														ng-show="adressForm.city.$invalid && !adressForm.city.$pristine"> <span
+														ng-show="adressForm.city.$error.required && !adressForm.city.$pristine">Cidade
+															é obrigatório.</span>
+													</span>
+												</div>
+											</div>
+											
+											<div class="control-group"
+												ng-class="{ 'has-error' : adressForm.state.$invalid && !adressForm.state.$pristine}">
+												<label>Estado</label>
+												<div class="controls">
+													<input type="text" class="form-control" id="state"
+														name="state"
+														ng-model="ctrlAdress.entityToEdit.state" required>
+													<span style="color: red"
+														ng-show="adressForm.state.$invalid  && !adressForm.state.$pristine"> <span
+														ng-show="adressForm.state.$error.required && !adressForm.state.$pristine">Estado
+															é obrigatório.</span>
+													</span>
+												</div>
+											</div>
+											
+											
+											<div class="control-group">
+												<label>Bairro</label>
+												<div class="controls">
+													<input type="text" class="form-control" id="bairro"
+														name="bairro"
+														ng-model="ctrlAdress.entityToEdit.bairro" >
+												</div>
+											</div>
+											
+											<div class="control-group">
+												<label>Complemento</label>
+												<div class="controls">
+													<input type="text" class="form-control" id="complemento"
+														name="complemento"
+														ng-model="ctrlAdress.entityToEdit.complemento" >
+												</div>
+											</div>
+											
+											<div class="control-group">
+												<label></label>
+												<div class="controls">
+													<button type="submit" ng-disabled="adressForm.$invalid"  ng-click="ctrlAdress.save()" class="btn btn-primary">
+														Salvar</button>
+												</div>
+											</div>
+										</form>
+									</div>
+									<!--/panel content-->
+								</div>
+
+							</div>
+							<!--/col-span-6-->
+
+						</div>
+						<!--/row-->
+					</div>
+					<!--/col-span-9-->
+				</div>
+			</div>
+
+
+	</form>
+	
+
+</body>
+</html>
