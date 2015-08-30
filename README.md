@@ -51,8 +51,28 @@ Dependency Injection (DI)
 
 
 Junto ao projeto, será publicado um word com as evidências dos testes executados.
+
+
 Para execução das evidências foram utilizadas o sopui e execuções do proprio sistema.
 
 Juntamente com os serviços de endereço , foi disponibilizado um serviço para cadastro de usuários no sistema, para auxilio da correção da prova. Como o foco do exercicio não era cadastro de usuários . 
 A parte de login em expecifico não teve processos de validação na tela com mensagens de erro ,..etc.
+
+###Orientações
+
+Após o projeto ser baixado, devem ser importados como maven project ou convertidos para projetos eclipses com o comando mvn eclipse:eclipse, apesar que só utilizei eles como projeto maven.
+
+No servidor de aplicativos devem ser publicados os projetos Servicos e WebSite. Lembrando que utilizei o servidor wildfly-8.2.1.Final.
+
+Antes de utilizar o sistema , deve-se cadastrar usuários na base, foi disponibilizado um serviço que adciona usuários, que se encontra em http://<endereço>:<porta>/Services/rest/zip/salvar.
+
+###Exercicio 01
+ O serviço que se refere a esse exercicio se é zipFind da classe SearchZip
+###Exercicio 02
+ Conjunto de sistemas disponibilizados
+###Exercicio 03
+ A resolução desse exercicio se encontra no projeto Exercicio03
+###Exercicio 04
+
+
 
