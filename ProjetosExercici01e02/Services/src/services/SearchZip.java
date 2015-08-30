@@ -21,11 +21,15 @@ import org.codehaus.jettison.json.JSONObject;
 import br.com.ex01.EntitiesVO.AdressVO;
 import br.com.ex01.EntitiesVO.RequestFindZipCode;
 import br.com.ex01.EntitiesVO.RespostaWebService;
-import exception.ServicesException;
 import main.java.cdi.SearchZipBusiness;
 import main.java.exception.BusinessException;
 import util.ExceptionMapperImpl;
 
+/**
+ * Classe relacionada com servicos de enderecos
+ * @author Chris
+ *
+ */
 @Path("zip")
 @RequestScoped
 public class SearchZip {
@@ -46,7 +50,7 @@ public class SearchZip {
     @Path("/searchZipCode")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response  zipFind(String json) throws ServicesException, JSONException, JsonParseException, JsonMappingException, IOException {
+    public Response  zipFind(String json) throws  JSONException, JsonParseException, JsonMappingException, IOException {
         RespostaWebService result = new RespostaWebService();
         Response response = null;
         try {
@@ -67,16 +71,12 @@ public class SearchZip {
         return response;
     }
     
+
     /**
-     * Metodo web para calculo da rota
+     * Metodo responsavel por salvar um novo endereço
      * @param json
-     * @return json
-     * @throws JSONException 
-     * @throws IOException 
-     * @throws JsonMappingException 
-     * @throws JsonParseException 
+     * @return
      */
-    
     @POST
 	@Path("/salvar")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -95,6 +95,11 @@ public class SearchZip {
 	}
     
     
+    /**
+     * Metodo que busca todos os endereços dado id
+     * @param json
+     * @return
+     */
     @POST
 	@Path("/getAdress")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -107,6 +112,11 @@ public class SearchZip {
 			return  new ExceptionMapperImpl().toResponse(e);
 		}
 	}
+    /**
+     * Metodo que deleta um endereço da base de dados
+     * @param json
+     * @return
+     */
     @POST
     @Path("/deletar")
     @Consumes(MediaType.APPLICATION_JSON)

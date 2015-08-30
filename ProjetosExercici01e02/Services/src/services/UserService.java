@@ -18,6 +18,12 @@ import util.ExceptionMapperImpl;
 
 
 
+/**
+ * CLasse responsavel pelo servicos relacionados a usuários
+ * @author Cristiano Momesso
+ * 
+ *
+ */
 @Path("user")
 @RequestScoped
 public class UserService {
@@ -25,6 +31,11 @@ public class UserService {
 	@Inject
 	UserBusiness userBusiness;
 	
+	/**
+	 * Servico que retorna o id do cliente a se logar
+	 * @param json
+	 * @return
+	 */
 	@POST
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -44,6 +55,11 @@ public class UserService {
 	}
 	
 	
+	/**
+	 * Serviço de cadastro de usuários
+	 * @param json
+	 * @return
+	 */
 	@POST
 	@Path("/saveUser")
 	@Consumes(MediaType.APPLICATION_JSON)

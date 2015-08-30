@@ -41,3 +41,10 @@ BUSINESS - camada responsavel pela camada de negocio da aplicação
 Services - Camada de webservices que será exposto pela aplicação 
 WebSite - camada de visualização contendo a parte grafica e o grud pedido no exercicio 2
 
+## Design pattern Utilizados
+
+Model-view-controller (MVC)
+Value Object (VO)
+Data Acess Objetct (DAO)
+Service-Oriented Architecture (SOA)
+Dependency Injection (DI)
