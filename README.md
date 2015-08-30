@@ -73,6 +73,10 @@ Antes de utilizar o sistema , deve-se cadastrar usuários na base, foi disponibi
 ###Exercicio 03
  A resolução desse exercicio se encontra no projeto Exercicio03
 ###Exercicio 04
+Ao clicar no link vc desencadeia um fluxo de informações dentro do computador. Diversos protocolos se interagem para o fornecimento da informação requisitada. Para que o protocolo HTTP  transfira os dados, é necessários os protocolos TCP e IP tornem possíveis uma conexão através de sockets TCP/IP .
+Através de mensagens o protocolo http faz a comunicação entre o cliente e o servidor. Mensagens são enviadas pelo cliente que faz uma requisição de um recurso ao servidor, só então o servidor envia uma mensagem de resposta ao cliente com a solicitação. 
+O cliente estabelece uma conexão com um servidor enviando uma requisição, contendo a URI, a versão do protocolo, uma mensagem com os modificadores da requisição, informações do requisitante.
+O servidor responde o requisitante com sua versão do protocolo utilizado e um código de operação (podendo ser de sucesso ou erro), seguido pelas informações do servidor,  e possível conteúdo requisitado. Após oferecida pelo  servidor, é encerrada a conexão que fora estabelecida. 
 
 
 
