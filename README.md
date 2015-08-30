@@ -51,3 +51,8 @@ Dependency Injection (DI)
 
 
 Junto ao projeto, será publicado um word com as evidências dos testes executados.
+Para execução das evidências foram utilizadas o sopui e execuções do proprio sistema.
+
+Juntamente com os serviços de endereço , foi disponibilizado um serviço para cadastro de usuários no sistema, para auxilio da correção da prova. Como o foco do exercicio não era cadastro de usuários . 
+A parte de login em expecifico não teve processos de validação na tela com mensagens de erro ,..etc.
+
