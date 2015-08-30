@@ -48,3 +48,6 @@ Value Object (VO)
 Data Acess Objetct (DAO)
 Service-Oriented Architecture (SOA)
 Dependency Injection (DI)
+
+
+Junto ao projeto, será publicado um word com as evidências dos testes executados.
