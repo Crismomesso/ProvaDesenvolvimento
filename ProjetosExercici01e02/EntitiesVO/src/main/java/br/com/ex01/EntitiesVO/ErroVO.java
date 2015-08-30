@@ -7,6 +7,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessType;
 
 
+/**
+ * Entidade que retorna os erros ocorridos nos servicos
+ * @author Cristiano Momesso
+ *
+ */
 @XmlRootElement
 @XmlAccessorType(value=XmlAccessType.FIELD)
 public class ErroVO implements Serializable {

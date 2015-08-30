@@ -1,5 +1,10 @@
 package br.com.ex01.EntitiesVO;
 
+/**
+ * Classe que representa o usuário que esta se logando 
+ * @author Cristiano Momesso
+ *
+ */
 public class AuthUser {
 	String user;
 	String password;

@@ -1,5 +1,10 @@
 package br.com.ex01.EntitiesVO;
 
+/**
+ * Classe que representa a entidade travegada da tela como resposta do webService
+ * @author Cristiano Momesso
+ *
+ */
 public class RespostaWebService {
 
 	String cep ;

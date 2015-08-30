@@ -3,6 +3,11 @@ package br.com.ex01.EntitiesVO;
 import java.util.List;
 
 
+/**
+ * CLasse que representa o endereco 
+ * @author Cristiano Momesso
+ *
+ */
 public class AdressVO {
 
 	private String id;
